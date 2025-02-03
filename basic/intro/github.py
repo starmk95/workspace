@@ -2,7 +2,7 @@ import requests
 
 def get_github_user_info(username):
     """
-    GitHub 사용자 정보를 가져오는 함수.
+    GitHub 사용자 정보 및 저장소 목록을 가져오는 함수.
     
     매개변수:
         username (str): GitHub 사용자 계정명
@@ -11,15 +11,24 @@ def get_github_user_info(username):
         dict: 사용자 정보 (성공 시)
         str: 오류 메시지 (실패 시)
     """
-    url = f"https://api.github.com/users/{username}"
-    response = requests.get(url)
-    
-    if response.status_code == 200:
-        return response.json()  # 정상적으로 데이터를 가져오면 JSON 반환
-    elif response.status_code == 404:
-        return "❌ 존재하지 않는 GitHub 사용자입니다."
-    else:
-        return f"⚠️ 오류 발생 (HTTP 상태 코드: {response.status_code})"
+    user_url = f"https://api.github.com/users/{username}"
+    repos_url = f"https://api.github.com/users/{username}/repos"
+
+    # 사용자 정보 요청
+    user_response = requests.get(user_url)
+    if user_response.status_code != 200:
+        return "❌ 존재하지 않는 GitHub 사용자입니다." if user_response.status_code == 404 else f"⚠️ 오류 발생 (HTTP 상태 코드: {user_response.status_code})"
+
+    user_data = user_response.json()
+
+    # 저장소 정보 요청
+    repos_response = requests.get(repos_url)
+    repos_data = repos_response.json() if repos_response.status_code == 200 else []
+
+    return {
+        "user": user_data,
+        "repos": repos_data
+    }
 
 # 사용자 입력 루프
 while True:
@@ -29,17 +38,29 @@ while True:
         print("프로그램을 종료합니다. 👋")
         break
 
-    user_info = get_github_user_info(username)
+    result = get_github_user_info(username)
 
-    if isinstance(user_info, dict):  # 정상적으로 정보를 가져온 경우
+    if isinstance(result, str):  # 오류 발생 시
+        print(result)
+    else:
+        user_info = result["user"]
+        repos = result["repos"]
+
         print("\n✅ 사용자 정보:")
         print(f"  - 이름: {user_info.get('name', '정보 없음')}")
         print(f"  - GitHub ID: {user_info.get('login', '정보 없음')}")
         print(f"  - 공개 저장소 수: {user_info.get('public_repos', '정보 없음')}")
         print(f"  - 팔로워 수: {user_info.get('followers', '정보 없음')}")
         print(f"  - 프로필 URL: {user_info.get('html_url', '정보 없음')}\n")
-    else:
-        print(user_info)  # 오류 메시지 출력
+
+        print("📂 사용자 공개 저장소 목록:")
+        if repos:
+            for idx, repo in enumerate(repos[:10], start=1):  # 최대 10개 출력
+                print(f"  {idx}. {repo['name']} | ⭐ {repo['stargazers_count']} | 🍴 {repo['forks_count']} | 🔗 {repo['html_url']}")
+        else:
+            print("  🚫 공개 저장소 없음")
+        
+        print("\n" + "=" * 50 + "\n")  # 구분선
 
 
 """
