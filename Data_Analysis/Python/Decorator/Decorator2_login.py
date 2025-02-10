@@ -4,7 +4,7 @@ def require_login(func):
             return func(user)
         else:
             print("로그인이 필요합니다.")
-return wrapper
+    return wrapper
 
 @require_login
 def dashboard(user):
@@ -13,3 +13,4 @@ def dashboard(user):
 user1 = {"name": "Alice", "is_logged_in": True}
 user2 = {"name": "Bob", "is_logged_in": False}
 dashboard(user1) # 정상 실행
+dashboard(user2) # 비정상 
