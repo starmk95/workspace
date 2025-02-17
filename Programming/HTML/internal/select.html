@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과일 선택</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        select, input {
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>좋아하는 과일을 선택하세요</h2>
+    <select id="fruitSelect" onchange="updateInput()">
+        <option value="">과일을 선택하세요</option>
+        <option value="사과">사과</option>
+        <option value="바나나">바나나</option>
+        <option value="딸기">딸기</option>
+        <option value="포도">포도</option>
+        <option value="오렌지">오렌지</option>
+    </select>
+    <br>
+    <input type="text" id="selectedFruit" placeholder="선택된 과일" readonly> <!--readonly는 입력 못하도록 하는 속성 / disabled는 입력 못하도록 회색처리함-->
+
+    <script>
+        function updateInput() {
+            var selectBox = document.getElementById("fruitSelect");
+            var inputBox = document.getElementById("selectedFruit");
+            inputBox.value = selectBox.value;
+        }
+    </script>
+</body>
+</html>

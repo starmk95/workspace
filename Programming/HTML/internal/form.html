@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="/login">
+        <label for="userbname">사용자 이름</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="userbname">비밀번호</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email"> <br>
+
+        <label for="subscribe">AI 구독</label>
+        <input type="checkbox" id="AI" name="subscribe" value="AI" required> <br>
+        <label for="subscribe">Cloud 구독</label>
+        <input type="checkbox" id="Cloud" name="subscribe" value="Cloud"><br>
+        <label for="subscribe">Data Science 구독</label>
+        <input type="checkbox" id="Data Science" name="subscribe" value="Data Science"><br>
+        <label for="subscribe">Programming 구독</label>
+        <input type="checkbox" id="Programming" name="subscribe" value="Programming"><br>
+
+        <h5>졸업 여부</h5>
+        <label for="elementary">초등학생</label>
+        <input type="checkbox" name="elementary" id="elementary">
+        <label for="middle">중학생</label>
+        <input type="checkbox" name="middle" id="middle">
+        <label for="high">고등학생</label>
+        <input type="checkbox" name="high" id="high">
+
+
+        <br>
+        <label for="gender">성별</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">남성</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">여성</label> <br>
+
+        <label for="date">날짜</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <button type="submit">제출</button>
+        <button type="reset">초기화</button>
+    </form>
+</body>
+</html>
