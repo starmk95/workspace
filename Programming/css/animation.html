@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform & Transition Example</title>
+    <style>
+        /* 기본 스타일 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+
+        body {
+            background-color: #1a1a2e; /* 어두운 네이비 배경 */
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: #f1c40f; /* 고급스러운 골드 컬러 */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        /* 도형 스타일 */
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #2e86c1; /* 고급스러운 블루 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            transition: background-color 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Hover 시 색상 변화 및 회전 효과 */
+        .box:hover {
+            background-color: #f1c40f; /* 골드 */
+            color: #1a1a2e;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff; /* 블루 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* 진한 블루 */
+        }
+
+        /* 좌우로 번갈아가며 튀는 애니메이션 */
+        @keyframes bounce {
+            0%, 100% { transform: translate(0, 0); }
+            20% { transform: translate(-10px, -20px) rotate(-5deg); }
+            40% { transform: translate(10px, -15px) rotate(5deg); }
+            60% { transform: translate(-7px, -10px) rotate(-3deg); }
+            80% { transform: translate(7px, -5px) rotate(3deg); }
+        }
+
+        .bounce {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Transform & Transition Example</h1>
+    
+    <div class="container">
+        <!-- 첫 번째 박스 -->
+        <div class="box-container">
+            <div class="box" id="box1">Hover me!</div>
+            <button class="btn" onclick="bounceEffect('box1')">Click Me!</button>
+        </div>
+
+        <!-- 두 번째 박스 -->
+        <div class="box-container">
+            <div class="box" id="box2">Hover me!</div>
+            <button class="btn" onclick="bounceEffect('box2')">Click Me!</button>
+        </div>
+    </div>
+
+    <script>
+        function bounceEffect(id) {
+            let box = document.getElementById(id);
+            box.classList.add("bounce");
+
+            // 애니메이션이 끝난 후 클래스 제거하여 다시 실행 가능하도록 설정
+            setTimeout(() => {
+                box.classList.remove("bounce");
+            }, 600);
+        }
+    </script>
+
+</body>
+</html>

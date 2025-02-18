@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고대비 다크 모드</title>
+    <style>
+        /* 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease, border 0.4s ease;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff; /* 기본 화이트 모드 */
+            color: #000;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc; /* 기본 테두리 */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            cursor: pointer;
+        }
+
+        /* ✅ 다크 모드 스타일 (일반) */
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background-color: #222;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            border: 2px solid #666;
+        }
+
+        /* 🔥 고대비 다크 모드 스타일 */
+        .high-contrast-mode {
+            background-color: #000 !important; /* 완전 검은색 */
+            color: #ffeb3b !important; /* 노란색 텍스트 */
+        }
+
+        .high-contrast-mode .container {
+            background-color: #000 !important;
+            border: 3px solid #ffeb3b !important; /* 선명한 노란색 테두리 */
+            color: #ffeb3b !important;
+        }
+
+        /* ✅ 고대비 버튼 스타일 */
+        .high-contrast-mode .radio-group label {
+            color: #ffeb3b !important; /* 노란색 */
+            font-weight: bold;
+        }
+
+        .high-contrast-mode input[type="radio"] {
+            accent-color: #ffeb3b; /* 노란색 라디오 버튼 */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>고대비 다크 모드 토글</h1>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="mode" value="light" checked onclick="toggleMode('light')">
+                화이트
+            </label>
+            <label>
+                <input type="radio" name="mode" value="dark" onclick="toggleMode('dark')">
+                다크
+            </label>
+            <label>
+                <input type="radio" name="mode" value="high-contrast" onclick="toggleMode('high-contrast')">
+                고대비
+            </label>
+        </div>
+        <p>라디오 버튼을 선택하여 모드를 변경해보세요!</p>
+    </div>
+
+    <script>
+        function toggleMode(mode) {
+            document.body.classList.remove("dark-mode", "high-contrast-mode"); // 기존 모드 제거
+            if (mode === 'dark') {
+                document.body.classList.add("dark-mode"); // 일반 다크 모드 적용
+            } else if (mode === 'high-contrast') {
+                document.body.classList.add("high-contrast-mode"); // 고대비 다크 모드 적용
+            }
+        }
+    </script>
+
+</body>
+</html>

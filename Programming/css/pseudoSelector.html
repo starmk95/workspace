@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스 선택자</title>
+    <style>
+        /* 링크 가상 클래스 선택자 */
+        a:link {
+            color: orange; /* 한 번도 방문한 적이 없는 링크 */
+        }
+
+        a:visited {
+            color: green; /* 한 번이라도 방문한 적 있는 링크 */
+        }
+
+        /* 동적 가상 클래스 선택자 */
+        p:hover {
+            color: red; /* 마우스를 올리면 해당 태그가 선택 */
+        }
+
+        button:active {
+            color: darkred; /* 클릭하고 있는 동안 스타일 변경 */
+            background-color: aquamarine;
+        }
+
+        /* 입력 엘리먼트 가상 클래스 선택자 */
+        input:focus {
+            color: darkcyan; /* 입력 요소에 커서가 활성화될 때 */
+            background-color: bisque;
+        }
+
+        input:checked + label {
+            color: darkorange; /* 체크박스가 선택되었을 때 label 태그의 텍스트 색상 변경 */
+        }
+
+        input:disabled {
+            background-color: #ccc; /* 비활성화된 입력 요소 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 링크 가상 클래스 선택자 -->
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.google.com">구글</a>
+
+    <!-- 동적 가상 클래스 선택자 -->
+    <p>hover</p>
+
+    <!-- 버튼 active 상태 -->
+    <button>active</button>
+
+    <!-- 입력 엘리먼트 가상 클래스 선택자 -->
+    <input type="text">
+    <br>
+
+    <input type="checkbox" id="userid">
+    <label for="userid">아이디</label>
+    <br>
+
+    <input type="text" disabled>
+    <button disabled>버튼</button>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크 모드 토글</title>
+    <style>
+        /* 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff; /* 기본 화이트 모드 */
+            color: #000;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            cursor: pointer;
+        }
+
+        /* 다크 모드 스타일 */
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background-color: #222;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>다크 모드 토글</h1>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="mode" value="light" checked onclick="toggleMode('light')">
+                화이트
+            </label>
+            <label>
+                <input type="radio" name="mode" value="dark" onclick="toggleMode('dark')">
+                다크
+            </label>
+        </div>
+        <p>라디오 버튼을 선택하여 모드를 변경해보세요!</p>
+    </div>
+
+    <script>
+        function toggleMode(mode) {
+            if (mode === 'dark') {
+                document.body.classList.add("dark-mode");
+            } else {
+                document.body.classList.remove("dark-mode");
+            }
+        }
+    </script>
+
+</body>
+</html>

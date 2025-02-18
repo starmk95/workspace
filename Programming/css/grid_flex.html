@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Grid & Flex Layout</title>
+    <style>
+        /* 전체 페이지 레이아웃 */
+        .container {
+            display: grid;
+            grid-template-rows: 100px auto;
+            gap: 10px;
+            width: 90%;
+            height: 500px;
+            margin: auto;
+            border: 3px solid black;
+            padding: 10px;
+        }
+
+        /* 최상단 박스 (반으로 나눔) */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 왼쪽 1칸, 오른쪽 1칸 */
+            gap: 10px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        /* 좌측 박스 */
+        .header-left {
+            display: flex;
+            align-items: flex-start; /* 좌측 상단 정렬 */
+            justify-content: flex-start;
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        /* 우측 박스 */
+        .header-right {
+            display: flex;
+            align-items: flex-end; /* 우측 하단 정렬 */
+            justify-content: flex-end;
+            gap: 10px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        /* 작은 박스 */
+        .box {
+            width: 60px;
+            height: 40px;
+            border: 2px solid black;
+        }
+
+        /* 메인 컨텐츠 */
+        .content {
+            display: grid;
+            grid-template-rows: 50px auto;
+            border: 2px solid black;
+            height: 100%;
+        }
+
+        /* 상단 긴 바 */
+        .top-bar {
+            border: 2px solid black;
+            height: 50px;
+        }
+
+        /* 하단 큰 박스 */
+        .main {
+            border: 2px solid black;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 최상단 헤더 -->
+        <div class="header">
+            <div class="header-left">
+                <div class="box"></div>
+            </div>
+            <div class="header-right">
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+
+        <!-- 본문 -->
+        <div class="content">
+            <div class="top-bar"></div>
+            <div class="main"></div>
+        </div>
+    </div>
+
+</body>
+</html>
