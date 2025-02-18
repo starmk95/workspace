@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS & JS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f7; /* 배경을 부드러운 그레이톤으로 설정 */
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .row {
+            border-bottom: 2px solid #dee2e6; /* 행 구분선 */
+        }
+        .row:last-child {
+            border-bottom: none; /* 마지막 행의 구분선 제거 */
+        }
+        .col {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb); /* 고급스러운 그라데이션 */
+            color: white;
+            padding: 20px;
+            border-right: 2px solid white; /* 각 열 구분선 */
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        .col:last-child {
+            border-right: none; /* 마지막 열의 구분선 제거 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container text-center">
+        <!-- 첫 번째 행 (2개의 컬럼) -->
+        <div class="row">
+            <div class="col">
+                1 of 2
+            </div>
+            <div class="col">
+                2 of 2
+            </div>
+        </div>
+
+        <!-- 두 번째 행 (3개의 컬럼) -->
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col">
+                2 of 3
+            </div>
+            <div class="col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
