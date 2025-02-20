@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요일 입력</title>
+</head>
+<body>
+
+    <label for="dayInput">요일을 입력하세요 (예: 월, 화, 수 또는 Monday, Tuesday 등):</label>
+    <input type="text" id="dayInput">
+    <button onclick="checkDay()">확인</button>
+
+    <p id="result"></p> <!-- 결과 출력할 위치 -->
+
+    <script>
+        function checkDay() {
+            let input = document.getElementById("dayInput").value.trim().toLowerCase(); // 입력값을 소문자로 변환
+
+            let dayMap = {
+                "monday": "월요일", "월": "월요일",
+                "tuesday": "화요일", "화": "화요일",
+                "wednesday": "수요일", "수": "수요일",
+                "thursday": "목요일", "목": "목요일",
+                "friday": "금요일", "금": "금요일",
+                "saturday": "토요일", "토": "토요일",
+                "sunday": "일요일", "일": "일요일"
+            };
+
+            let resultText = dayMap[input] || "올바른 요일을 입력하세요!";
+
+            document.getElementById("result").innerText = resultText; // 결과 출력
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 합산</title>
+</head>
+<body>
+
+    <label for="numberInput">숫자를 입력하세요 (쉼표로 구분):</label>
+    <input type="text" id="numberInput">
+    <button onclick="processNumbers()">계산</button>
+
+    <p id="result"></p> <!-- 결과 출력 -->
+
+    <script>
+        // 가변 인자를 받아서 합산하는 함수
+        const addNumbers = function(...numbers) {
+            let sum = 0;
+            for (let number of numbers) {
+                sum += number;
+            }
+            return sum;
+        }
+
+        function processNumbers() {
+            let input = document.getElementById("numberInput").value.trim();
+
+            if (!input) {
+                alert("숫자를 입력하세요!");
+                return;
+            }
+
+            // 쉼표로 분리 후, 숫자로 변환
+            let numberArray = input.split(",").map(num => Number(num.trim()));
+
+            // 숫자가 아닌 값이 있는지 확인 - 숫자가 아닌 문자열이 num에 들어간다면, Number()메소드의 반환값으로 isNAN이 반환됨
+            if (numberArray.some(isNaN)) {
+                alert("올바른 숫자만 입력하세요!");
+                return;
+            }
+
+            // 합산 결과 계산
+            let result = addNumbers(...numberArray);
+            document.getElementById("result").innerText = `합계: ${result}`;
+        }
+    </script>
+
+</body>
+</html>

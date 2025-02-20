@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var - 변수 선언은 호이스팅 되지만, 초기화는 호이스팅되지 않는다.
+        console.log(a); // undefined 출력
+        var a = 5;
+        console.log(a); // 5 출력
+
+        // let, const - 선언만 호이스팅되고, 초기화 전에 접근하면 RefferenceError 발생
+        // console.log(b); // 에러 발생
+        let b = 10;
+
+        // 함수 선언 - 선언과 정의가 함께 호이스팅 되기 떄문에 선언 전에 호출 가능
+        console.log(foo());
+        function foo() {
+            return "Hello";
+        }
+
+        // 함수 표현식 - 함수 정의가 호이스팅되지 않기 때문에, 정의 전에 호출하면 TypeError 발생
+        console.log(bar());
+        var bar = function() {
+            return "world";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추첨 프로그램</title>
+    <style>
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="drawButton">추첨하기</button>
+    <p id="message"></p>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("drawButton").addEventListener("click", function() {
+            const message = document.getElementById("message");
+            const result = document.getElementById("result");
+            
+            message.textContent = "1초 후 에 당첨 결과가 발표됩니다.";
+            result.textContent = "";
+            
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(Math.random() < 0.5);
+                }, 1000);
+            }).then(isWinner => {
+                if (isWinner) {
+                    result.textContent = "당첨 되었습니다.";
+                    result.style.color = "blue";
+                } else {
+                    result.textContent = "꽝! 다음 기회에...";
+                    result.style.color = "red";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

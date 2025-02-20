@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 숫자를 문자열로 변환하는 방법 4가지
+        let num1 = 123;
+        let str1 = String(num1);
+        console.log(str1);
+        console.log(typeof str1);
+
+        let num2 = 123;
+        let str2 = num2.toString();
+        console.log(str2);
+        console.log(typeof str2);
+
+        let num3 = 123;
+        let str3 = `${num3}`;
+        console.log(str3);
+        console.log(typeof str3);
+
+        let num4 = 123;
+        let str4 = num3 + "";
+        console.log(str4);
+        console.log(typeof str4);
+
+        // 문자열을 숫자로 변환하는 방법 4가지
+        // Number() 함수 사용
+        let str5 = "123";
+        let num5 = Number(str5);
+        console.log(num5); // 123
+        console.log(typeof num5); // "number"
+
+        // parseInt() 또는 parseFloat() 함수 사용 : 숫자 이외의 문자는 무시됨
+        let str6 = "123";
+        let num6 = parseInt(str6, 10); // 10은 진법을 의미 (선호되는 사용 방식)
+        console.log(num6); // 123
+        console.log(typeof num6); // "number"
+
+        // 단항 + 연산자 사용
+        let str7 = "123";
+        let num7 = +str3;
+        console.log(num7); // 123
+        console.log(typeof num7); // "number"
+
+        // *1 연산 사용
+        let str8 = "123";
+        let num8 = str4 * 1;
+        console.log(num8); // 123
+        console.log(typeof num8); // "number"
+
+
+    </script>
+</body>
+
+</html>

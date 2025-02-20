@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const studentScore = {
+            koreanScore:80,
+            englishScore:70,
+            mathScore:90,
+            scienceScore:60
+        };
+        console.log(studentScore.koreanScore); 
+        console.log(studentScore[`englishScore`]);  // 배열에서 참조하듯이 각 속성을 인덱스처럼 사용해서 조회 가능
+        console.table(studentScore);
+        studentScore.englishScore = 100;
+        console.log(studentScore.englishScore);
+    </script>
+</body>
+</html>

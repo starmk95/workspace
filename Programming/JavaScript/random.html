@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 숫자 생성기</title>
+</head>
+<body>
+    <h2>랜덤 숫자 생성기</h2>
+    <button id="generateButton">랜덤 숫자 생성</button>
+    <p id="randomNumber">여기에 숫자가 표시됩니다.</p>
+
+    <script>
+        document.getElementById("generateButton").addEventListener("click", function() {
+            // 1 ~ 10,000,000 사이의 랜덤 숫자 생성
+            const randomNum = Math.floor(Math.random() * 10000000) + 1;
+            
+            // 결과를 HTML에 출력
+            document.getElementById("randomNumber").textContent = `생성된 숫자: ${randomNum}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사칙연산 계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>사칙연산 계산기</h2>
+
+    <!-- 숫자 입력 필드 -->
+    <input type="number" id="num1" placeholder="첫 번째 숫자">
+    <input type="number" id="num2" placeholder="두 번째 숫자">
+    <br>
+
+    <!-- 사칙연산 버튼 -->
+    <button onclick="doAdd()">+</button>
+    <button onclick="doSub()">-</button>
+    <button onclick="doMul()">×</button>    
+    <button onclick="doDiv()">÷</button>
+
+    <!-- 결과 출력 -->
+    <div type = "number" id="result">결과: </div>
+
+    <script type= "module" src="main.js"></script>
+
+    <!-- <script>
+        function calculate(operator) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            // 입력값 검증
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").textContent = "숫자를 입력하세요!";
+                return;
+            }
+
+            // 사칙연산 수행
+            switch(operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num2 !== 0 ? (num1 / num2).toFixed(2) : "0으로 나눌 수 없습니다!";
+                    break;
+                default:
+                    result = "잘못된 연산자입니다.";
+            }
+
+            // 결과 출력
+            document.getElementById("result").textContent = "결과: " + result;
+        }
+    </script> -->
+</body>
+</html>

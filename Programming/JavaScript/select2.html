@@ -1,0 +1,26 @@
+<head>
+    <title>과일 선택 예시</title>
+    <script>
+        function showSelectedFruit() {
+            event.preventDefault();
+            var fruit = document.getElementById("fruit").value;
+            document.getElementById("result").textContent = "선택한 과일은: " + fruit;
+        }
+    </script>
+</head>
+<body>
+    <h1>과일 선택</h1>
+    <form action="#">
+        <label for="fruit">좋아하는 과일을 선택하세요:</label>
+        <select id="fruit" name="fruit">
+            <option value="apple">사과</option>
+            <option value="banana">바나나</option>
+            <option value="orange">오렌지</option>
+            <option value="grape">포도</option>
+        </select>
+        <br>
+        <button onclick="showSelectedFruit()">선택</button> <!--버튼에 이벤트 할당-->>
+        <br><br>
+        <div id="result"></div>
+    </form>
+</body>

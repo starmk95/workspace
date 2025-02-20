@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 입력 및 출력</title>
+</head>
+<body>
+
+    <label for="arrayInput">쉼표(,)로 구분된 값을 입력하세요:</label>
+    <input type="text" id="arrayInput">
+    <button onclick="processArray()">확인</button>
+
+    <p id="result"></p> <!-- 결과 출력할 위치 -->
+
+    <script>
+        function processArray() {
+            let input = document.getElementById("arrayInput").value.trim(); // 입력값 가져오기 & 앞뒤 공백 제거
+            let arr = input.split(",").map(item => item.trim()); // 쉼표로 나누고, 공백 제거
+
+            let resultText = "";
+            for (let i = 0; i < arr.length; i++) {
+                resultText += `${i + 1}. ${arr[i]}<br>`; // 각 항목을 번호와 함께 출력
+                if(arr[i]=='바나나') break;
+            }
+
+            document.getElementById("result").innerHTML = resultText; // 결과 표시
+        }
+    </script>
+
+</body>
+</html>

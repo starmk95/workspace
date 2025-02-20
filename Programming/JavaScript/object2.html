@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 출력</title>
+</head>
+<body>
+    <h2>객체 출력 예제</h2>
+    <pre id="output"></pre>
+
+    <script>
+        const person = {
+            name: "홍길동",
+            age: 30,
+            job: "의적",
+            skills: ["검술", "전략", "분신"],
+            shadow: "검은색"
+        };
+
+        // 개별 요소 출력
+        console.log("이름:", person.name);
+        console.log("나이:", person.age);
+        console.log("직업:", person.job);
+        console.log("기술:", person.skills.join(", "));
+        console.log("그림자 색:", person.shadow);
+
+        // JSON 형태로 변환 후 출력
+        const personJSON = JSON.stringify(person, null, 2);
+        console.log("JSON 형태:", personJSON);
+
+        // HTML에 출력
+        document.getElementById("output").textContent = personJSON;
+
+        console.log(Object.keys(person));
+        console.log(Object.values(person));
+        console.log(Object.entries(person));
+
+        const human1 = person;
+        human1.name = "이순신";
+        console.log(human1);
+
+    const original = { a: 1 }; // 원본 객체
+    const copy = { ...original }; // 얕은 복사
+
+    copy.a = 2; // 복사본의 a 값 변경
+
+    console.log(original.a); // 1 (원본 영향 없음)
+    console.log(copy.a); // 2 (복사본만 변경됨)
+
+
+    </script>
+</body>
+</html>

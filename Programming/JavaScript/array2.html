@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const original = [1,2,3];
+        const copy = [...original];
+        console.log(copy);
+
+        const arr1 = [1,2];
+        const arr2 = [3,4];
+        const merged = [...arr1, ...arr2];
+
+        const str = 'hello';
+        const sarr = [...str];
+        console.log(sarr);
+
+        const barr = [2,3];
+        const newArr = [1, ...barr, 4];
+        console.log(newArr);
+    </script>
+</body>
+</html>

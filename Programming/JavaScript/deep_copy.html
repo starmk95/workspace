@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+    name: "홍길동",
+    age: 30,
+    job: "의적",
+    skills: ["검술", "전략", "분신"],
+    shadow: "검은색"
+};
+
+// 깊은 복사 수행
+const duplicatedPerson = JSON.parse(JSON.stringify(person));
+
+// '분신' 스킬 제거
+duplicatedPerson.skills = duplicatedPerson.skills.filter(skill => skill !== "분신");
+
+console.log(duplicatedPerson);
+
+    </script>
+</body>
+</html>

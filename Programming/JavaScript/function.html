@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 입력</title>
+</head>
+<body>
+
+    <label for="nameInput">이름:</label>
+    <input id="nameInput">
+    
+    <label for="ageInput">나이:</label>
+    <input id="ageInput">
+
+    <button onclick="processInput()">확인</button>
+
+    <p id="result"></p> <!-- 결과를 출력할 위치 -->
+
+    <script>
+        const displayInfo = (name, age) => {
+            document.getElementById("result").innerText = `${name} is ${age} years old.`;
+        }
+
+        const validateInput = (name, age) => {
+            // 이름이 문자열이 아니거나, 숫자가 포함된 경우 오류 발생
+            let namePattern = /^[A-Za-z가-힣]+$/; // 한글, 영어만 허용
+
+            if (!namePattern.test(name)) {
+                alert("이름은 숫자가 포함되지 않은 문자만 입력해야 합니다!");
+                return false;
+            }
+
+            // 나이가 숫자인지 확인 (빈 값 or 음수 확인)
+            if (isNaN(age) || age <= 0) {
+                alert("나이는 숫자로 입력해야 하며, 1 이상의 값을 입력해주세요!");
+                return false;
+            }
+
+            return true;
+        }
+
+        function processInput() {
+            let name = document.getElementById("nameInput").value.trim();
+            let age = document.getElementById("ageInput").value.trim();
+
+            // 나이를 숫자로 변환
+            age = Number(age);
+
+            if(validateInput(name, age)) {
+                displayInfo(name, age);
+            }
+        }
+    </script>
+
+</body>
+</html>

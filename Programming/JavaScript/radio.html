@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라디오 버튼 예제</title>
+</head>
+<body>
+    <h2>배송 방법 선택</h2>
+    <form id="shippingForm">
+        <label>배송 방법을 선택하세요:</label><br>
+
+        <input type="radio" id="standard" name="shipping" value="standard" checked>
+        <label for="standard">일반 배송</label><br>
+
+        <input type="radio" id="express" name="shipping" value="express">
+        <label for="express">익스프레스 배송</label><br>
+
+        <input type="radio" id="pickup" name="shipping" value="pickup">
+        <label for="pickup">매장 픽업</label><br><br>
+
+        <button type="submit">선택 확인</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
