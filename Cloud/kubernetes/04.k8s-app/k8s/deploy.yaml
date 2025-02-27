@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk054-first-deploy-test
+  namespace: skala-practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sk054-first-deploy-test
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
+        prometheus.io/path: '/prometheus'
+        update: f73d894ee9ca03d677917551a1778ffe
+      labels:
+        app: sk054-first-deploy-test
+    spec:
+      serviceAccountName: default
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: skala-k8s-practice
+                operator: In
+                values:
+                - "yes"
+      containers:
+      - name: webserver
+        image: amdp-registry.skala-ai.com/skala25a/sk054-webserver:2.0.0
+        imagePullPolicy: Always
+        env:
+        - name: LOGGING_LEVEL
+          value: DEBUG
+        - name: USER_NAME
+          value: sk054
+      tolerations:
+      - effect: 
+        key: skala-k8s-practice
+        operator: Equal
+        value: "yes"
